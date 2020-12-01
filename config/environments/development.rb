@@ -60,6 +60,5 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.omniauth :twitter, ENV['TWITTER_API_KEY'], ENV['TWITTER_API_SECRET_KEY']
-  config.omniauth :facebook, ENV['FACEBOOK_API_ID'], ENV['FACEBOOK_API_SECRET']
+
 end
