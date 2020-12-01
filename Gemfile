@@ -59,6 +59,8 @@ gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails'
 # ログイン機能
 gem 'devise'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 # 画像投稿
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
