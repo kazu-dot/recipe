@@ -1,0 +1,53 @@
+// Place all the styles related to the public controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+body{
+  margin: 0;
+  color: black;
+}
+
+.inside {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+.top{
+  background-image: url(Top.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  min-height: 105vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2em;
+  margin-top: -100px;
+  position: relative;
+}
+
+.top::before {
+  background-color:rgba(0,0,0,0.6);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+}
+
+.title{
+  font-family: 'impact', sans-serif;
+  letter-spacing: 20px;
+  color: rgb(250, 246, 246);
+  font-size: 800%;
+  margin: 1%;
+}
+
+.catch_copy{
+  color: rgb(250, 246, 246);
+  margin: 1%;
+}
