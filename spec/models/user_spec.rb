@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
+  it "メールアドレスが適切なフォーマットで無ければ無効な状態であること"
+  it "ユーザーが削除されたとき、投稿は破棄されていること"
+
+
 
   it "名前、メール、パスワードがあれば有効な状態であること" do
     user = User.new(
@@ -27,7 +31,6 @@ RSpec.describe User, type: :model do
     expect(user.errors[:username]).to include("can't be blank")
   end
 
-  it "メールアドレスが適切なフォーマットで無ければ無効な状態であること"
 
   it "重複したメールアドレスなら無効な状態であること" do
     other_user = User.create(
