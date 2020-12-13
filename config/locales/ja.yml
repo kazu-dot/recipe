@@ -1,12 +1,5 @@
 ---
 ja:
-  activerecord:
-    errors:
-      messages:
-        record_invalid: 'バリデーションに失敗しました: %{errors}'
-        restrict_dependent_destroy:
-          has_one: "%{record}が存在しているので削除できません"
-          has_many: "%{record}が存在しているので削除できません"
   date:
     abbr_day_names:
     - 日
@@ -207,11 +200,3 @@ ja:
     pm: 午後
 
 
-ja:
-  activerecord:
-    attributes:
-      user:
-        username: 名前
-        password: パスワード
-        password_confirmation: パスワード確認
-        email: メールアドレス

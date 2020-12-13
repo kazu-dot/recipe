@@ -1,18 +1,19 @@
 ja:
   errors:
     messages:
-      not_found: 'は見つかりませんでした'
+      not_saved: "エラーが発生したためユーザーは保存されませんでした"
+      not_found: は見つかりませんでした
 #      not_found: 'not found'
-      already_confirmed: 'は既に登録済みです'
+      already_confirmed: は既に登録済みです
 #      already_confirmed: 'was already confirmed'
-      not_locked: 'は凍結されていません'
+      not_locked: は凍結されていません
 #      not_locked: 'was not locked'
-      taken: 'は既に使用されています。'
-      blank: 'が入力されていません。'
-      too_short: 'は%{count}文字以上に設定して下さい。'
-      too_long: 'は%{count}文字以下に設定して下さい。'
-      invalid: 'は有効でありません。'
-      confirmation: 'が内容とあっていません。'
+      taken: は既に使用されています。
+      blank: が入力されていません。
+      too_short: は%{count}文字以上に設定して下さい。
+      too_long: は%{count}文字以下に設定して下さい。
+      invalid: は有効でありません。
+      confirmation: が内容とあっていません。
 
   devise:
     failure:
@@ -71,3 +72,13 @@ ja:
       unlock_instructions:
         subject: 'アカウントの凍結解除'
 #        subject: 'Unlock Instructions'
+
+ja:
+  activerecord:
+    attributes:
+      user:
+        username: 名前
+        password: パスワード
+        password_confirmation: パスワード確認
+        email: メールアドレス
+
