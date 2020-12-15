@@ -2,6 +2,14 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
+  it "has a valid factory" do
+    expect(FactoryBot.build(:user)).to be_valid
+  end
+
+  it "メールアドレスが適切なフォーマットで無ければ無効な状態であること"
+  it "ユーザーが削除されたとき、投稿は破棄されていること"
+
+
 
   it "名前、メール、パスワードがあれば有効な状態であること" do
     user = User.new(
@@ -14,33 +22,24 @@ RSpec.describe User, type: :model do
 
 
   it "名前がなければ無効な状態であること" do
-    user = User.new(username: nil)
+    user = FactoryBot.build(:user, username: nil)
     user.valid?
-    expect(user.errors[:username]).to include("can't be blank")
+    expect(user.errors[:username]).to include("を入力してください")
   end
 
   it "名前が長過ぎれば無効な状態であること"
 
   it "メールアドレスがなければ無効な状態であること" do
-    user = User.new(email: nil)
+    user = FactoryBot.build(:user, email: nil)
     user.valid?
-    expect(user.errors[:username]).to include("can't be blank")
+    expect(user.errors[:email]).to include("を入力してください")
   end
 
-  it "メールアドレスが適切なフォーマットで無ければ無効な状態であること"
 
   it "重複したメールアドレスなら無効な状態であること" do
-    other_user = User.create(
-      username: "RYO",
-      email: "example@hogehoge.com",
-      password: "password123@",
-    )
+    FactoryBot.create(:user, email: "dupulicated@example.com")
 
-    user = User.new(
-      username: "DAIKI",
-      email: "example@hogehoge.com",
-      password: "password123@",
-    )
+    user = FactoryBot.build(:user, email: "dupulicated@example.com")
 
     expect(user).to_not be_valid
   end
