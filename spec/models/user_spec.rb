@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
   it "名前がなければ無効な状態であること" do
     user = FactoryBot.build(:user, username: nil)
     user.valid?
-    expect(user.errors[:username]).to include("を入力してください")
+    expect(user.errors[:username]).to include("が入力されていません。")
   end
 
   it "名前が長過ぎれば無効な状態であること"
@@ -32,7 +32,7 @@ RSpec.describe User, type: :model do
   it "メールアドレスがなければ無効な状態であること" do
     user = FactoryBot.build(:user, email: nil)
     user.valid?
-    expect(user.errors[:email]).to include("を入力してください")
+    expect(user.errors[:email]).to include("が入力されていません。")
   end
 
 
