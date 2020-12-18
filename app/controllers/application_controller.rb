@@ -5,9 +5,6 @@ class ApplicationController < ActionController::Base
 
   # 省略
 
-  def after_sign_in_path_for(resource)
-    public_show_path
-  end
 
 private
   def sign_in_required
