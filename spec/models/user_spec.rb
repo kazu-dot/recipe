@@ -27,7 +27,7 @@ RSpec.describe User, type: :model do
     expect(user.errors[:username]).to include("が入力されていません。")
   end
 
-  it "名前が長過ぎれば無効な状態であること"
+   it "名前が長過ぎれば無効な状態であること"
 
   it "メールアドレスがなければ無効な状態であること" do
     user = FactoryBot.build(:user, email: nil)
