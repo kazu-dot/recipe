@@ -73,3 +73,5 @@ gem 'kaminari', '~> 1.2.1'
 gem 'pry-byebug'
 # 静的解析ツール
 gem 'rubocop-airbnb'
+gem 'rails-i18n'
+gem 'devise-i18n'
