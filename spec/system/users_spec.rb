@@ -15,7 +15,7 @@ RSpec.describe "Users", js: true, type: :system do
     fill_in "メールアドレス", with: user.email
     fill_in "パスワード", with: user.password
     click_button 'ログイン'
-    expect(page).to have_content 'メールアドレスかパスワードが違います。'
+    expect(page).to have_content 'メールアドレスまたはパスワードが違います。'
   end
 
 
@@ -28,7 +28,7 @@ RSpec.describe "Users", js: true, type: :system do
     fill_in "名前", with: 'いとう'
 
     click_button '更新する'
-    expect(page).to have_content 'アカウントを更新しました'
+    expect(page).to have_content 'アカウント情報を変更しました'
     expect(page).to have_content 'いとう'
   end
 
