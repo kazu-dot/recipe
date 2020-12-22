@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
 
   it "名前、メール、パスワードがあれば有効な状態であること" do
     user = User.new(
-      username: "RYO",
+      name: "RYO",
       email: "example@hogehoge.com",
       password: "password123@",
     )
@@ -22,9 +22,9 @@ RSpec.describe User, type: :model do
 
 
   it "名前がなければ無効な状態であること" do
-    user = FactoryBot.build(:user, username: nil)
+    user = FactoryBot.build(:user, name: nil)
     user.valid?
-    expect(user.errors[:username]).to include("が入力されていません。")
+    expect(user.errors[:name]).to include("が入力されていません。")
   end
 
    it "名前が長過ぎれば無効な状態であること"
