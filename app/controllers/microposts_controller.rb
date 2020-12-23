@@ -12,7 +12,8 @@ class MicropostsController < ApplicationController
       flash[:success] = "投稿しました！"
       redirect_to root_url
     else
-      render 'public/home'
+      flash[:alert] = '投稿に失敗しました'
+      render :new
     end
   end
 
