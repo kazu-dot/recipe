@@ -75,8 +75,12 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "次回から自動的にログイン"
+      micropost:
+        title: "料理名"
+        content: "詳細"
     models:
       user: "ユーザ"
+      micropost: "投稿"
   devise:
     confirmations:
       new:
