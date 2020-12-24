@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :micropost do
-    sequence(:content) {"Hello world #{n} "}
+    title { "test title" }
+    content{"Hello world "}
     association :user
   end
 end

@@ -14,9 +14,6 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   #
-   def create
-    @user = User.find(current_user.id)
-   end
 
   # DELETE /resource/sign_out
   # def destroy
