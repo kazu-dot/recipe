@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Users", js: true, type: :system do
+  let(:user){FactoryBot.create(:user)}
 
   it 'ログイン画面が表示されること' do
     visit new_user_session_path
@@ -20,7 +21,6 @@ RSpec.describe "Users", js: true, type: :system do
 
 
   it '編集ページでプロフィールを変更できる' do
-    user = FactoryBot.create(:user)
     sign_in user
     visit edit_user_registration_path
 
