@@ -45,4 +45,3 @@ yarn-debug.log*
 /vendor
 /.env
 /tmp/screenshots
-/config/database.yml
