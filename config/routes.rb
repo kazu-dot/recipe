@@ -6,8 +6,12 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  resources :users do
-    resources :microposts
+  resources :users , only: [:show] do
+    resources :microposts, only: %i[new create update destroy]
+  end
+
+  resources :microposts do
+      resources :favorites, only: %i[create destroy]
   end
 
   root 'public#home'
