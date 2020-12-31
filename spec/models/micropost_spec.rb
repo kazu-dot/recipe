@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Micropost, type: :model do
-
   let(:micropost){FactoryBot.create(:micropost)}
 
   it "has a valid factory" do
