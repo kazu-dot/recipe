@@ -7,4 +7,18 @@
   <span class="timestamp">
      <%= time_ago_in_words(micropost.created_at) %>前
   </span>
+
+  <div id="favorite_form">
+  <%# To do: 下記のselect文を便利メソッドに書き換える%>
+  <%if Favorite.exists?(user: current_user, micropost_id: micropost.id)%>
+      <p><span><%= micropost.favorites.count %></span><%= button_to 'お気に入りを削除', micropost_favorites_path(micropost_id: micropost.id), method: :delete %></p>
+      <div><%= hidden_field_tag :favorite_id, micropost.id %></div>
+  <% else %>
+    <%= form_with(model: current_user.favorites.build, local: true,
+                  url: micropost_favorites_path(micropost.id)) do |f| %>
+      <div><%= hidden_field_tag :favorite_id, micropost.id %></div>
+      <%= f.submit "お気に入り登録", class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
+</div>
 </li>

@@ -9,4 +9,11 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true
 
+
+
+  # 現在のユーザーがフォローしてたらtrueを返す
+  def favorite?(micropost)
+    favorites.include?(micropost)
+  end
 end
+
