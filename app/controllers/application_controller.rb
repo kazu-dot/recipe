@@ -6,10 +6,17 @@ class ApplicationController < ActionController::Base
   # 省略
 
 
-private
-  def sign_in_required
-      redirect_to new_user_session_url unless user_signed_in?
+  private
+
+  # ユーザーのログインを確認する
+  def logged_in_user
+    unless user_signed_in?
+      store_location
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
   end
+
 
 protected
   def configure_permitted_parameters

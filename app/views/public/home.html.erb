@@ -4,7 +4,20 @@
     <p class="catch_copy">毎日の料理を楽しく</p>
 
     <% if current_user %>
-      <%= link_to 'レシピを投稿する', new_user_micropost_path(@user) %>
+      <%= link_to 'レシピを投稿する', new_micropost_path(@user.id) %>
     <% end %>
   </div>
 </div>
+
+<% if current_user %>
+  <div>
+    <h2 class='top-micropost-title'>新着のメニュー</h2>
+      <div class='top-micropost-wrapper new-wrapper'>
+        <button id='new-scroll-left' class='scroll-btn new-scroll-btn'> < </button>
+        <div class='top-micropost white-background slide' >
+          <%= render partial: 'microposts/micropost', collection: @microposts %>
+        </div>
+        <button id='new-scroll-right'class='scroll-btn new-scroll-btn'> > </button>
+      </div>
+  </div>
+<% end %>
