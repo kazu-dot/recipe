@@ -9,15 +9,44 @@
   </div>
 </div>
 
-<% if current_user %>
-  <div>
-    <h2 class='top-micropost-title'>新着のメニュー</h2>
-      <div class='top-micropost-wrapper new-wrapper'>
-        <button id='new-scroll-left' class='scroll-btn new-scroll-btn'> < </button>
-        <div class='top-micropost white-background slide' >
-          <%= render partial: 'microposts/micropost', collection: @microposts %>
-        </div>
-        <button id='new-scroll-right'class='scroll-btn new-scroll-btn'> > </button>
-      </div>
-  </div>
-<% end %>
+<<div class="hidden-tb hidden-sp">
+				<div style="margin-bottom: 50px;">
+					<span class="form-title" style="margin-right: 20px; font-size: 25px;">
+						<i class="fas fa-utensils"></i> Recipes
+					</span>
+
+					<div class="micropost-contents" style="justify-content: center;">
+						<% @microposts.shuffle.first(3).each do |micropost| %>
+              <div class="micropost-content">
+                <%= link_to micropost_path(micropost), class:"micropost-select" do %>
+                  <span style="font-size: 18px;">
+                    <i class="fas fa-utensils font-md-sp" style="margin-top: 5px;">
+                      <%= micropost.title.truncate(15) %>
+                    </i>
+                  </span>
+                <% end %>
+
+                  <span class="hidden-sp hidden-tb">
+                    <%= link_to user_path(micropost.user) do %>
+                      <i class="fas fa-user" style="color: #F96167"></i>
+                        <span style="color: black"><%= micropost.user.name %>
+                        </span>
+                    <% end %>
+
+                      <%# <%= micropost.comments.count %>
+                    <% if user_signed_in? %>
+                      <span class="favorite_<%= micropost.id %>" >
+                        <%= render "microposts/favorite", micropost: micropost %>
+                      </span>
+                    <% else %>
+                        <i class="fas fa-heart" style="color: #F96167"></i>
+                        <span style="color:black">
+                          <%= micropost.favorites.count %>
+                        </span>
+                    <% end %>
+                  </span>
+              </div>
+						<% end %>
+					</div>
+					<span style="float: right;"><%= link_to "more_recipes > ", microposts_path %></span>
+				</div>

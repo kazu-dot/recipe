@@ -1,0 +1,24 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="micropost_info">
+      <h1>
+        <%= @micropost.title %>
+      </h1>
+    </section>
+  </aside>
+
+      <h2>
+        <%= @micropost.content %>
+      </h2>
+
+  <% if user_signed_in? %>
+    <span class="favorite_<%= @micropost.id %>" >
+      <%= render "microposts/favorite", micropost: @micropost %>
+    </span>
+  <% else %>
+      <i class="fas fa-heart" style="color: #F96167"></i>
+      <span style="color:black">
+        <%= micropost.favorites.count %>
+      </span>
+  <% end %>
+</div>
