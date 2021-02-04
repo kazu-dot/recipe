@@ -5,9 +5,16 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_back(fallback_location: root_path)
     else
+      flash[:alert] = 'コメント投稿に失敗しました'
       redirect_back(fallback_location: root_path)
     end
+  end
 
+  def destroy
+    @comment = Comment.find(params[:comment_id])
+    @micropost = Micropost.find(params[:micropost_id])
+    @comments = @micropost.comments.all
+    @comment.destroy
   end
 
   private

@@ -24,11 +24,15 @@
 
 
   <h3>コメント一覧</h3>
-    <% @comments.each do |c| %>
+    <% @comments.each do |comment| %>
       <div>
-        <a href="/users/<%= @micropost.user.id %>"><%= c.user.name %></a>
-        <%= c.content %>
+        <a href="/users/<%= @micropost.user.id %>"><%= comment.user.name %></a>
+        <%= comment.content %>
         <hr>
+
+        <% if current_user == comment.user %>
+          <%= button_to 'コメントを削除する', micropost_comment_path(comment_id: comment.id, micropost_id: comment.micropost.id), method: :delete %>
+        <% end %>
       </div>
     <% end %>
 
