@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :microposts do
       resource :favorites, only: [:create, :destroy]
+      resources :comments,  only: [:create, :destroy]
   end
 
   resources :users do
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   resources :relationships,       only: [:create, :destroy]
-  resources :comment,       only: [:create, :destroy]
+
 
   root 'public#home'
   get  'public/show'

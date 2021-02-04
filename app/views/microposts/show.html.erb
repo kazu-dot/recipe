@@ -21,4 +21,31 @@
         <%= micropost.favorites.count %>
       </span>
   <% end %>
+
+
+  <h3>コメント一覧</h3>
+    <% @comments.each do |comment| %>
+      <div>
+        <a href="/users/<%= @micropost.user.id %>"><%= comment.user.name %></a>
+        <%= comment.content %>
+        <hr>
+
+        <% if current_user == comment.user %>
+          <%= button_to 'コメントを削除する', micropost_comment_path(comment_id: comment.id, micropost_id: comment.micropost.id), method: :delete %>
+        <% end %>
+      </div>
+    <% end %>
+
+
+  <% if user_signed_in? %>
+    <div class="row" style="margin-top: 30px">
+      <div class="col-lg-12 col-12">
+        <span class="form-title" style="font-size: 20px">New Comment</span>
+        <%= form_for [@micropost, @comment] do |f| %>
+          <%= f.text_area :content, rows:"2", class:"font-md-sp" %><br>
+          <%= f.submit "コメントする", class:"btn btn-warning submit-btn" %>
+        <% end %>
+      </div>
+    </div>
+		<% end %>
 </div>
