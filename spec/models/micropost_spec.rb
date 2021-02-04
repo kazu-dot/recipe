@@ -12,6 +12,8 @@ RSpec.describe Micropost, type: :model do
     expect(micropost.valid?).to eq false
   end
 
-  it "投稿文字数が多ければ無効な状態であること"
-  describe 'アソシエーションのテスト'
+  it "投稿文字数が多ければ無効な状態であること" do
+    micropost.content = 'a' * 141
+    expect(micropost.valid?).to eq false
+  end
 end
