@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :comment do
-    content "MyString"
-    user nil
-    post nil
+    content "いいですね!"
+    association :micropost
+    association :user
   end
 end
