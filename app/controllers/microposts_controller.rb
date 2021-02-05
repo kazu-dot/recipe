@@ -8,22 +8,26 @@ class MicropostsController < ApplicationController
 
   def show
     @micropost = Micropost.find(params[:id])
+    @post_tags = @post.tags
     @comments = @micropost.comments
     @comment = Comment.new
   end
 
   def index
+    @tag_list = Tag.all
     @microposts = Micropost.all
   end
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
+    tag_list = params[:post][:tag_name].split(nil)
     if @micropost.save
+      @post.save_tag(tag_list)
       flash[:success] = "投稿しました！"
-      redirect_to root_url
+      redirect_back(fallback_location: root_path)
     else
       flash[:alert] = '投稿に失敗しました'
-      render :new
+      redirect_back(fallback_location: root_path)
     end
   end
 
