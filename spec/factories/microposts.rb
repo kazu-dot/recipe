@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :micropost do
-    title { "test title" }
+    title { "ヴィシソワーズ" }
     content{"Hello world "}
     association :user
   end

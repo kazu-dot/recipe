@@ -18,6 +18,8 @@ RSpec.describe "Microposts", type: :system do
 
   it '投稿失敗時にエラーメッセージが正しく表示される' do
     visit new_micropost_path(user)
+    fill_in "料理名", with: nil
+    fill_in "詳細", with: nil
     click_button '投稿する'
 
     expect(page).to have_content '投稿に失敗しました'
@@ -25,7 +27,7 @@ RSpec.describe "Microposts", type: :system do
     expect(page).to have_content '詳細を入力してください'
   end
 
-  it '適切な投稿が成功する' do
+  it '有効な投稿が成功する' do
     visit new_micropost_path(user)
     fill_in "料理名", with: "ヴィシソワーズ"
     fill_in "詳細", with: "ジャガイモをミキサーにかけて牛乳を加えて温める"
