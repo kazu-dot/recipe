@@ -4,11 +4,12 @@ class MicropostsController < ApplicationController
 
   def new
     @micropost = Micropost.new
+
   end
 
   def show
     @micropost = Micropost.find(params[:id])
-    @post_tags = @post.tags
+    @post_tags = @micropost.tags
     @comments = @micropost.comments
     @comment = Comment.new
   end
@@ -20,14 +21,14 @@ class MicropostsController < ApplicationController
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
-    tag_list = params[:post][:tag_name].split(nil)
+    tag_list = params[:micropost][:tag_name].split(nil) unless params[:micropost][:tag_name].nil?
     if @micropost.save
-      @post.save_tag(tag_list)
+      @micropost.save_tag(tag_list) unless params[:micropost][:tag_name].nil?
       flash[:success] = "投稿しました！"
       redirect_back(fallback_location: root_path)
     else
       flash[:alert] = '投稿に失敗しました'
-      redirect_back(fallback_location: root_path)
+      render :new
     end
   end
 

@@ -11,6 +11,10 @@
         <%= @micropost.content %>
       </h2>
 
+    <% @micropost.tags.each do |tag| %>
+        <%= tag.tag_name %>
+    <% end %>
+
   <% if user_signed_in? %>
     <span class="favorite_<%= @micropost.id %>" >
       <%= render "microposts/favorite", micropost: @micropost %>
@@ -26,7 +30,7 @@
   <h3>コメント一覧</h3>
     <% @comments.each do |comment| %>
       <div>
-        <a href="/users/<%= @micropost.user.id %>"><%= comment.user.name %></a>
+        <a href="/users/<%= comment.user.id %>"><%= comment.user.name %></a>
         <%= comment.content %>
         <hr>
 
