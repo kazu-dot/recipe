@@ -13,6 +13,10 @@ Rails.application.routes.draw do
       resources :comments,  only: [:create, :destroy]
   end
 
+  resources :tags do
+    get 'microposts', to: 'microposts#search'
+  end
+
   resources :users do
     member do
       get :following, :followers
