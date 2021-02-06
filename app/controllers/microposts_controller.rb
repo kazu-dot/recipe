@@ -22,7 +22,7 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.build(micropost_params)
     tag_list = params[:micropost][:tag_name].split(nil) unless params[:micropost][:tag_name].nil?
     if @micropost.save
-      @micropost.save_tag(tag_list) unless params[:micropost][:tag_name].nil?
+      @micropost.save_tag(tag_list) unless tag_list.nil?
       flash[:success] = "投稿しました！"
       redirect_back(fallback_location: root_path)
     else

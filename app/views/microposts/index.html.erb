@@ -1,15 +1,5 @@
 <div class="micropost-contents"  style="padding-top: 20px">
 
-  <%= @tag_list.each do |tag| %>
-    <div class="tag-content">
-      <%= link_to tag_microposts_path(tag_id: tag.id), class:"micropost-select" do %>
-        <span style="font-size: 18px;">
-          <%= tag.tag_name %>
-        </span>
-      <% end %>
-    </div>
-  <% end %>
-
   <% @microposts.each do |micropost| %>
     <div class="micropost-content">
       <%= link_to micropost_path(micropost), class:"micropost-select" do %>
@@ -23,4 +13,6 @@
       <% end %>
     </div>
   <% end %>
+
+  <%= render "microposts/tag_list", tag_list: @tag_list %>
 </div>
