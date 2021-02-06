@@ -12,7 +12,7 @@
       </h2>
 
     <% @micropost.tags.each do |tag| %>
-        <%= tag.tag_name %>
+        <%= link_to tag.tag_name, tag_microposts_path(tag_id: tag.id) %>
     <% end %>
 
   <% if user_signed_in? %>

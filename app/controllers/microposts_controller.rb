@@ -9,7 +9,6 @@ class MicropostsController < ApplicationController
 
   def show
     @micropost = Micropost.find(params[:id])
-    @post_tags = @micropost.tags
     @comments = @micropost.comments
     @comment = Comment.new
   end
@@ -36,6 +35,12 @@ class MicropostsController < ApplicationController
     @micropost.destroy
     flash[:success] = "投稿を削除しました"
     redirect_to request.referrer || root_url
+  end
+
+  def search
+    @tag = Tag.find(params[:tag_id])
+    @microposts = @tag.microposts
+    @tag_list = Tag.all
   end
 
   private
