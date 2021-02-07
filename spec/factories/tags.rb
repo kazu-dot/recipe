@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :tag do
-    tag_name "和食"
+    tag_name "洋食"
   end
 end

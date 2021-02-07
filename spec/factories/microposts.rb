@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :micropost do
     title { "ヴィシソワーズ" }
-    content{"Hello world "}
+    content{"ジャガイモをミキサーにかけて牛乳を加えて温める"}
     association :user
   end
 end
