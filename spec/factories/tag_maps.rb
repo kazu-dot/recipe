@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :tag_map do
-    micropost nil
-    tag nil
+    association :micropost
+    association :tag
   end
 end

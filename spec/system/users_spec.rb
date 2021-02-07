@@ -24,7 +24,7 @@ RSpec.describe "Users", js: true, type: :system do
     sign_in user
     visit edit_user_registration_path
 
-    expect(page).to have_field '名前', with: "test name"
+    expect(page).to have_field '名前', with: user.name
     fill_in "名前", with: 'いとう'
 
     click_button '更新する'
