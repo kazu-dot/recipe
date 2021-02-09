@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :tags do
-    get 'microposts', to: 'microposts#search'
+    get 'microposts', to: 'microposts#select'
   end
 
   resources :users do

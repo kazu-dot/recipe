@@ -37,7 +37,7 @@ class MicropostsController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
-  def search
+  def select
     @tag = Tag.find(params[:tag_id])
     @microposts = @tag.microposts
     @tag_list = Tag.all
