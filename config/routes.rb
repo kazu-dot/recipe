@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     get 'microposts', to: 'microposts#select'
   end
 
+  get '/search', to: 'microposts#search', as: 'search'
+
   resources :users do
     member do
       get :following, :followers

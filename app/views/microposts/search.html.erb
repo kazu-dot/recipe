@@ -1,0 +1,18 @@
+<p>検索</p>
+<%= form_tag(search_path,:method => 'get') do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'Search', :name => nil %>
+<% end %>
+
+<ul>
+  <% @microposts.each do |micropost| %>
+    <li>
+      <%= link_to micropost.title, micropost %>
+      <%= micropost.created_at %>
+    </li>
+  <% end %>
+</ul>
+
+<div>
+<%= render "microposts/tag_list", tag_list: @tag_list %>
+</div>
