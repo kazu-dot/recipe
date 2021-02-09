@@ -38,10 +38,16 @@ class MicropostsController < ApplicationController
   end
 
   def search
+    @microposts = Micropost.search(params[:search])
+    @tag_list = Tag.all
+  end
+
+  def select
     @tag = Tag.find(params[:tag_id])
     @microposts = @tag.microposts
     @tag_list = Tag.all
   end
+
 
   private
 

@@ -1,0 +1,18 @@
+<div class="micropost-contents"  style="padding-top: 20px">
+  <% @microposts.each do |micropost| %>
+    <div class="micropost-content">
+      <%= link_to micropost_path(micropost), class:"micropost-select" do %>
+        <span style="font-size: 18px;">
+          <%= micropost.title.truncate(15) %>
+        </span>
+
+        <div style="position: relative;">
+          <%= micropost.content.truncate(40) %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+
+    <%= render "microposts/tag_list", tag_list: @tag_list %>
+</div>

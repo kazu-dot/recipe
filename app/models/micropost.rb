@@ -13,6 +13,11 @@ class Micropost < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
+  def self.search(search)
+    return Micropost.all unless search
+    Micropost.where(['content LIKE ?', "%#{search}%"])
+  end
+
   def save_tag(sent_tags)
     # current_tag: 既に登録されているタグ
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?

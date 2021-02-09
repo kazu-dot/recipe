@@ -1,18 +1,18 @@
-<div class="micropost-contents"  style="padding-top: 20px">
+<p>検索</p>
+<%= form_tag(search_path,:method => 'get') do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'Search', :name => nil %>
+<% end %>
+
+<ul>
   <% @microposts.each do |micropost| %>
-    <div class="micropost-content">
-      <%= link_to micropost_path(micropost), class:"micropost-select" do %>
-        <span style="font-size: 18px;">
-          <%= micropost.title.truncate(15) %>
-        </span>
-
-        <div style="position: relative;">
-          <%= micropost.content.truncate(40) %>
-        </div>
-      <% end %>
-    </div>
+    <li>
+      <%= link_to micropost.title, micropost %>
+      <%= micropost.created_at %>
+    </li>
   <% end %>
+</ul>
 
-
-    <%= render "microposts/tag_list", tag_list: @tag_list %>
+<div>
+<%= render "microposts/tag_list", tag_list: @tag_list %>
 </div>
