@@ -8,6 +8,9 @@
         <div style="position: relative;">
           <%= micropost.content.truncate(40) %>
         </div>
+      <% if current_user == micropost.user %>
+        <%= button_to '投稿を削除する', micropost_path(micropost), method: :delete %>
+      <% end %>
       <% end %>
     </div>
   <% end %>
