@@ -1,0 +1,16 @@
+ <% @microposts.each do |micropost| %>
+    <div class="micropost-content">
+      <%= link_to micropost_path(micropost), class:"micropost-select" do %>
+        <span style="font-size: 18px;">
+          <%= micropost.title.truncate(15) %>
+        </span>
+
+        <div style="position: relative;">
+          <%= micropost.content.truncate(40) %>
+        </div>
+      <% if current_user == micropost.user %>
+        <%= button_to '投稿を削除する', micropost_path(micropost), method: :delete %>
+      <% end %>
+      <% end %>
+    </div>
+  <% end %>
