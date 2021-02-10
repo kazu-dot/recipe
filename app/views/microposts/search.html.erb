@@ -1,14 +1,6 @@
 <%= render "microposts/search_form" %>
 
-<ul>
-  <% @microposts.each do |micropost| %>
-    <li>
-      <%= link_to micropost.title, micropost %>
-      <%= micropost.created_at %>
-    </li>
-  <% end %>
-</ul>
+<%= render "microposts/microposts", microposts: @microposts %>
 
-<div>
 <%= render "microposts/tag_list", tag_list: @tag_list %>
-</div>
+
