@@ -1,0 +1,28 @@
+<div class="container">
+	<span class="form-title">Edit micropost</span>
+	<div class="row" >
+		<div class="col-lg-6 col-12">
+			<%= form_for(@micropost) do |f| %>
+			<%= f.label :tag_list, 'タグ(間には空白を入れて下さい)'%>
+			<%= f.text_field :tag_list, value: @micropost.tags.join('　'), class:"form-control",
+				placeholder: "豚肉　玉ねぎ　パスタ" %>
+		</div>
+		<div class="col-lg-6 col-12">
+			<p>レシピ</p>
+			<div id="error_explanation"><%= render "layouts/error_messages", {object: @micropost} %></div>
+				<div class="row">
+					<div >レシピ名</div>
+					<div ><p><%= f.text_field :title, placeholder:"レシピ名" %></p>
+					</div>
+				</div>
+				<div class="row">
+					<div>紹介文</div>
+					<div><p><%= f.text_area :content, placeholder:"ポイント、特徴など" %></p></div>
+				</div>
+				<div>
+					<%= f.submit "保存する", class:"btn btn-warning submit-btn" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

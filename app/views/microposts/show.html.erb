@@ -10,6 +10,7 @@
       <h2>
         <%= @micropost.content %>
       </h2>
+      <%= link_to "編集", edit_micropost_path(@micropost) %>
 
     <% @micropost.tags.each do |tag| %>
         <%= link_to tag.tag_name, tag_microposts_path(tag_id: tag.id) %>
