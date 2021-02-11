@@ -9,7 +9,7 @@
 		</div>
 		<div class="col-lg-6 col-12">
 			<p>レシピ</p>
-			<div id="error_explanation"><%= render "layouts/error_messages", {object: @micropost} %></div>
+			<div id="error_explanation"><%= render "layouts/error_messages", model: f.object %></div>
 				<div class="row">
 					<div >レシピ名</div>
 					<div ><p><%= f.text_field :title, placeholder:"レシピ名" %></p>
