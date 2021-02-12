@@ -18,7 +18,7 @@ class MicropostsController < ApplicationController
 
   def index
     @tag_list = Tag.all
-    @microposts = Micropost.all
+    @microposts = Micropost.published
   end
 
   def create

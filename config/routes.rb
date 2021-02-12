@@ -8,6 +8,12 @@ Rails.application.routes.draw do
 
   resources :users , only: [:show]
 
+  resources :users do
+    member do
+      get 'confirm', as: 'confirm_micropost'
+    end
+  end
+
   resources :microposts do
       resource :favorites, only: [:create, :destroy]
       resources :comments,  only: [:create, :destroy]
@@ -29,6 +35,5 @@ Rails.application.routes.draw do
 
 
   root 'public#home'
-  get  'public/show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
