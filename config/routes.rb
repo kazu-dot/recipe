@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :users do
     member do
-      get 'confirm', as: 'confirm_micropost'
+      get 'confirm', as: 'confirm_microposts'
     end
   end
 
