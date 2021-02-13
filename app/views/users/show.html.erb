@@ -4,6 +4,10 @@
       <h1>
         <%= @user.name %>
       </h1>
+      <% if @user.image? %>
+        <%= image_tag @user.image.url, :size =>'32x48'%>
+      <% else %>
+      <% end %>
     </section>
   </aside>
 
