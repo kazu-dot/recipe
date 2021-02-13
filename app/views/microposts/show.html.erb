@@ -1,5 +1,21 @@
 <div class="row">
   <aside class="col-md-4">
+  <% if user_signed_in? %>
+				<% if @micropost.user_id == current_user.id %>
+					<% if @micropost.status == "draft" %>
+						<%= form_for(@micropost) do |f| %>
+							<%= f.hidden_field :status, value: "published" %>
+							<%= f.submit "公開する", class:"btn btn-warning submit-btn" %>
+						<% end %>
+					<% elsif  @micropost.status == "published" %>
+						<%= form_for(@micropost) do |f| %>
+							<%= f.hidden_field :status, value: "draft" %>
+							<%= f.submit "公開しない", class:"btn btn-warning submit-btn" %>
+						<% end %>
+					<% end %>
+        <% end %>
+  <% end %>
+
     <section class="micropost_info">
       <h1>
         <%= @micropost.title %>
