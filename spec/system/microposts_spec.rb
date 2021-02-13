@@ -23,8 +23,8 @@ RSpec.describe "Microposts", type: :system do
     click_button '投稿する'
 
     expect(page).to have_content '投稿に失敗しました'
-    expect(page).to have_content '料理名を入力してください'
-    expect(page).to have_content '詳細を入力してください'
+    expect(page).to have_content '料理名が入力されていません'
+    expect(page).to have_content '紹介文が入力されていません'
   end
 
   it '有効な投稿が成功する' do
