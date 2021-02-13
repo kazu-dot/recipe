@@ -76,3 +76,6 @@ gem 'pry-byebug'
 gem 'rubocop-airbnb'
 gem 'rails-i18n'
 gem 'devise-i18n'
+#画像アップロードツール
+gem 'carrierwave'
+gem 'rmagick'
