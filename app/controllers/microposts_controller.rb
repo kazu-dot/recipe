@@ -53,7 +53,7 @@ class MicropostsController < ApplicationController
   private
 
   def micropost_params
-    params.require(:micropost).permit(:title, :content).merge(user_id: current_user.id)
+    params.require(:micropost).permit(:title, :content, :img).merge(user_id: current_user.id)
   end
 
   def set_user

@@ -5,7 +5,7 @@
         <%= @user.name %>
       </h1>
       <% if @user.image? %>
-        <%= image_tag @user.image.url, :size =>'32x48'%>
+        <%= image_tag @user.image.url(:thumb) %>
       <% else %>
       <% end %>
     </section>
