@@ -11,6 +11,11 @@
         <%= @micropost.content %>
       </h2>
 
+      <p>
+        <strong>Image:</strong>
+        <%= image_tag @micropost.img.url if @micropost.img? %>
+      </p>
+
     <% @micropost.tags.each do |tag| %>
         <%= link_to tag.tag_name, tag_microposts_path(tag_id: tag.id) %>
     <% end %>
