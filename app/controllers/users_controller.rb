@@ -4,6 +4,12 @@ class UsersController < ApplicationController
     @microposts = @user.microposts
   end
 
+  def confirm
+    @user = User.find(params[:id])
+    @microposts = @user.microposts.draft
+  end
+
+
   def following
     @title = "Following"
     @user  = User.find(params[:id])

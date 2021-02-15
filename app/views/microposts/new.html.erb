@@ -13,5 +13,6 @@
         <%= f.text_field :tag_name %>
         <%= f.submit "投稿する", class: 'btn-default red-round-btn' %>
       <% end %>
+      <%= link_to 'レシピの下書きを投稿する', confirm_microposts_user_path(id: current_user.id) %>
     </div>
 </div>

@@ -35,14 +35,8 @@ ja:
       over_x_years:
         one:   "1年以上"
         other: "%{count}年以上"
-ja:
-  activerecord:
-    attributes:
-      user:
-        name: 名前
-        email: メールアドレス
-        password: パスワード
-        password_confirmation: パスワード（確認）
+
+
 ja:
   activerecord:
     errors:
@@ -67,6 +61,31 @@ ja:
               too_long: "は%{count}文字以下に設定して下さい。"
               invalid: "は有効でありません。"
               confirmation: "が内容とあっていません。"
+        micropost:
+          attributes:
+            title:
+              blank: "が入力されていません。"
+              too_short: "は%{count}文字以上で入力してください。"
+              too_long: "は%{count}文字以下で入力してください。"
+              invalid: "は有効でありません。"
+            content:
+              blank: "が入力されていません。"
+              too_short: "は%{count}文字以上で入力してください。"
+              too_long: "は%{count}文字以下で入力してください。"
+              invalid: "は有効でありません。"
+        tag:
+          attributes:
+            tag_name:
+              too_short: "は%{count}文字以上で入力してください。"
+              too_long: "は%{count}文字以下で入力してください。"
+        comment:
+          attributes:
+            content:
+              blank: "が入力されていません。"
+              too_short: "は%{count}文字以上で入力してください。"
+              too_long: "は%{count}文字以下で入力してください。"
+
+
     attributes:
       user:
         current_password: "現在のパスワード"
@@ -77,11 +96,19 @@ ja:
         remember_me: "次回から自動的にログイン"
       micropost:
         title: "料理名"
-        content: "詳細"
+        content: "紹介文"
+      tag:
+        tag_name: "タグ"
+      comment:
+        content: "コメント"
     models:
       user: "ユーザ"
       micropost: "投稿"
-  devise:
+      tag: "タグ"
+      comment: "コメント"
+
+
+      devise:
     confirmations:
       new:
         resend_confirmation_instructions: "アカウント確認メール再送"
