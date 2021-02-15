@@ -4,6 +4,7 @@ class Micropost < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :tag_maps, dependent: :destroy
   has_many :tags, through: :tag_maps
+  mount_uploader :img, ImageUploader
 
   validates :user_id, presence: true
   validates :title  , presence: true, length: { maximum: 30 }

@@ -28,6 +28,11 @@
       </h2>
       <%= link_to "編集", edit_micropost_path(@micropost) %>
 
+      <p>
+        <strong>Image:</strong>
+        <%= image_tag @micropost.img.url if @micropost.img? %>
+      </p>
+
     <% @micropost.tags.each do |tag| %>
         <%= link_to tag.tag_name, tag_microposts_path(tag_id: tag.id) %>
     <% end %>
